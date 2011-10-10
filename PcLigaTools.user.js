@@ -225,6 +225,7 @@ var MEdelanterosArray=[];
 	}
 
 MEjugadores=MEjugadores/num_jugadores;
+MEjugadores=parseFloat(MEjugadores).toFixed(2);
 MRjugadores=MRjugadores/num_jugadores;
 MRjugadores=parseFloat(MRjugadores).toFixed(2);
 mediaEdad=TotalEdades/num_jugadores;
@@ -398,6 +399,8 @@ $('.selectDropBox').change(function() {
 //MR PLANTILLA PROPIA
 if(urlVisitada[0]==urlEquipoPropio) 
 {
+	
+	
 var foundTable=$('table.textonoticias > tbody').get(0);
 var num_jugadores=$('tr',foundTable).length-1;
 
@@ -508,29 +511,44 @@ var totalTemporada=totalJornada*38;
 totalTemporada=parseFloat(totalTemporada).toFixed(2);
 
 
-
-
 porterosArray.sort(sortPositionPlayersMaxMinMR);
 defensasArray.sort(sortPositionPlayersMaxMinMR);
 mediosArray.sort(sortPositionPlayersMaxMinMR);
 delanterosArray.sort(sortPositionPlayersMaxMinMR);
 
 
+var all=$('div.article').find('h1');
+var found;
+for(i=0;i<all.length;i++)
+    if(all.get(i).innerHTML=="Plantilla"){
+        found=$('div.article').find('h1').get(i);
+        i=all.length;
+	}
+
 
 //rellenamos cuadro informacion
 var contenido='<br><div title="PcLigaTools" class="resumenJugadores"><table><tr><td><b>MR Plantilla:</b></td><td>'+MRjugadores+'</td></tr><tr><td><b>Media Edad:</b></td><td>'+mediaEdad+' años</td></tr><tr><td><b>Mejor jugador:</b></td><td>'+' '+banderaMejor+' '+MejorJugador+' (MR: '+MRmejorJugador+')</td></tr><tr><td><b>Peor jugador:</b></td><td> '+banderaPeor+' '+PeorJugador+' (MR: '+MRpeorJugador+')</td></tr><tr><td><b>Sueldo Jornada/Mensual/Temporada: </b></td><td>'+totalJornada+'M / '+totalFichas+'M / '+totalTemporada+'M (aprox.)</td></tr></table></div><br>';
 var HTMLDropBox='<form id="formDropBox"><select id="selectDropBox" class="selectDropBox" size="1"><option value="#" selected="selected">Táctica</option><option value="442">4-4-2</option><option value="352">3-5-2</option><option value="343">3-4-3</option><option value="361">3-6-1</option><option value="424">4-2-4</option><option value="433">4-3-3</option><option value="334">3-3-4</option><option value="451">4-5-1</option><option value="523">5-2-3</option><option value="532">5-3-2</option><option value="541">5-4-1</option><option value="622">6-2-2</option><option value="631">6-3-1</option></select></form>';
 var divTacticaElegida='<br><div class="datosTacticaElegida"><br></div>';
-var found=$('div.article').find('h1').get(17);
+//var found=$('div.article').find('h1').get(17);
 
 var tableDropBoxes='<table><tr><td>'+HTMLDropBox+'</td><tr></table>';
 
+
+
+
+
+
+
 $(contenido + tableDropBoxes + divTacticaElegida).insertAfter(found);
+$('.config').toggle();
 $('.resumenJugadores').css("border", "1px solid red");
 $('.resumenJugadores').css("border-radius", "3px");
 
 $('.datosTacticaElegida').css("border", "1px solid red");
 $('.datosTacticaElegida').css("border-radius", "3px");
+
+
 
 
 
