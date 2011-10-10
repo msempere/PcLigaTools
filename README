@@ -1,0 +1,17 @@
+Userscripts and Firefox:
+------------------------
+
+Greasemonkey is an extension for Mozilla Firefox, an open source Web Browser. Most userscripts are written for Firefox & Greasemonkey (although some work in Opera, Safari and even Internet Explorer).
+
+I will assume you are using Firefox, if not you should install Firefox first.
+
+
+
+Other Browsers:
+---------------
+
+User scripts can be used in browsers other than Firefox, but the scripting APIs and browser JavaScript support vary.
+
+
+Warning: Only install Userscripts that you trust.
+
